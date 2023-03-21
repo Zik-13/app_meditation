@@ -1,4 +1,4 @@
-package com.example.up;
+package com.example.up.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +24,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.up.GalleryDirectory.MyAdapter;
+import com.example.up.R;
+import com.example.up.Transform;
+import com.example.up.User;
+import com.example.up.photdir.Photo;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -54,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         String imageUrl = User.avatar;
         Picasso.get()
                 .load(imageUrl)
-                .transform(new CircleTransform())
+                .transform(new Transform())
                 .into(imageView);
         textView.setText(User.nickName);
         SetAdapter();
@@ -62,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     public void UnLogin(View v){
-        Intent intent = new Intent(ProfileActivity.this,LoginActivity.class);
+        Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
         startActivity(intent);
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

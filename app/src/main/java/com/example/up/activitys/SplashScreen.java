@@ -1,9 +1,11 @@
-package com.example.up;
+package com.example.up.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.up.Onboarding;
 
 public class SplashScreen extends AppCompatActivity {
 

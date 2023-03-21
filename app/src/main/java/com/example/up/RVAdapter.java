@@ -13,9 +13,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
-    private List<Feeling> myObjects;
+    private List<Feel> myObjects;
 
-    public RVAdapter(List<Feeling> myObjects) {
+    public RVAdapter(List<Feel> myObjects) {
         this.myObjects = myObjects;
     }
 
@@ -27,7 +27,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Feeling myObject = myObjects.get(position);
+        Feel myObject = myObjects.get(position);
         holder.textView.setText(myObject.title);
         Picasso.get().load(myObject.image).into(holder.imageView);
     }

@@ -1,4 +1,4 @@
-package com.example.up;
+package com.example.up.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.up.R;
+import com.example.up.User;
 
 import org.json.JSONObject;
 
@@ -70,7 +73,7 @@ public class OnboardingActivity extends AppCompatActivity {
                         User.token = response.getString("token");
                         Log.d("response",response.toString());
 
-                        Intent main = new Intent(OnboardingActivity.this,MainActivity.class);
+                        Intent main = new Intent(OnboardingActivity.this, MainActivity.class);
                         startActivity(main);
                     } else {
                         Toast.makeText(OnboardingActivity.this, "invalid username or password", Toast.LENGTH_SHORT).show();

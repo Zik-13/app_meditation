@@ -1,26 +1,23 @@
-package com.example.up;
+package com.example.up.activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Base64;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.example.up.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -89,7 +86,7 @@ public class PhotoActivity extends AppCompatActivity implements GestureDetector.
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if (Math.abs(velocityX) > Math.abs(velocityY)) {
             if (velocityX > 0) {
-                Intent intent = new Intent(PhotoActivity.this,ProfileActivity.class);
+                Intent intent = new Intent(PhotoActivity.this, ProfileActivity.class);
                 startActivity(intent);
 
             } else {

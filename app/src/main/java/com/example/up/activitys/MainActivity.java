@@ -1,4 +1,4 @@
-package com.example.up;
+package com.example.up.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -17,6 +17,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.up.Feel;
+import com.example.up.LVAdapter;
+import com.example.up.Quote;
+import com.example.up.R;
+import com.example.up.RVAdapter;
+import com.example.up.Transform;
+import com.example.up.User;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         String imageUrl = User.avatar;
         Picasso.get()
                 .load(imageUrl)
-                .transform(new CircleTransform())
+                .transform(new Transform())
                 .into(image);
         TextView w_name = findViewById(R.id.welcome_name);
         w_name.setText("С возвращением, " + User.nickName);
@@ -119,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class getFeelings extends AsyncTask<Void, Void, List<Feeling>>{
+    class getFeelings extends AsyncTask<Void, Void, List<Feel>>{
         private RecyclerView recyclerView;
         private Context context;
 
@@ -129,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected List<Feeling> doInBackground(Void... voids) {
-            List<Feeling> feelingList = new ArrayList<Feeling>();
+        protected List<Feel> doInBackground(Void... voids) {
+            List<Feel> feelList = new ArrayList<Feel>();
             try {
                 URL url = new URL("http://mskko2021.mad.hakta.pro/api/feelings");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -148,13 +155,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray json_array = new JSONArray(response.getString("data"));
                     for (int i = 0; i < json_array.length(); i++) {
                         JSONObject json_object = json_array.getJSONObject(i);
-                        Feeling feeling = new Feeling();
-                        feeling.image = json_object.getString("image");
-                        feeling.title = json_object.getString("title");
-                        feeling.position = json_object.getInt("position");
-                        feelingList.add(feeling);
+                        Feel feel = new Feel();
+                        feel.image = json_object.getString("image");
+                        feel.title = json_object.getString("title");
+                        feel.position = json_object.getInt("position");
+                        feelList.add(feel);
                     }
-                    RVAdapter adapter = new RVAdapter(feelingList);
+                    RVAdapter adapter = new RVAdapter(feelList);
                     recyclerView.setAdapter(adapter);
 
                 } else {
@@ -166,18 +173,18 @@ public class MainActivity extends AppCompatActivity {
             catch (Exception e){
                 Log.d("e",e.toString());
             }
-            return feelingList;
+            return feelList;
         }
         @Override
-        protected void onPostExecute(List<Feeling> feelingList) {
-            super.onPostExecute(feelingList);
-            RVAdapter adapter = new RVAdapter(feelingList);
+        protected void onPostExecute(List<Feel> feelList) {
+            super.onPostExecute(feelList);
+            RVAdapter adapter = new RVAdapter(feelList);
             recyclerView.setAdapter(adapter);
         }
     }
 
     public void GoProfile(View v){
-        Intent profile = new Intent(MainActivity.this,ProfileActivity.class);
+        Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(profile);
     }
 

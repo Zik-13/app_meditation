@@ -3,10 +3,6 @@ package com.example.up.GalleryDirectory;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.up.Photo;
-import com.example.up.PhotoActivity;
-import com.example.up.ProfileActivity;
+import com.example.up.photdir.Photo;
+import com.example.up.activitys.PhotoActivity;
 import com.example.up.R;
 
-import java.io.FileDescriptor;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class MyAdapter extends ArrayAdapter<Photo> {
     private Context mContext;

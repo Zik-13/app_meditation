@@ -15,23 +15,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".PhotoActivity"
+            android:name=".activitys.PhotoActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activitys.ProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activitys.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activitys.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".activitys.OnboardingActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>

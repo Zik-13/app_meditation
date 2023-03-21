@@ -1,11 +1,7 @@
-package com.example.up;
-
-import static android.app.Activity.RESULT_OK;
+package com.example.up.photdir;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +10,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import com.example.up.activitys.PhotoActivity;
+import com.example.up.R;
 
-public class GalleryAdapter extends BaseAdapter {
+import java.util.List;
+
+public class GalleryConnector extends BaseAdapter {
     private List<Photo> mPhotos;
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public GalleryAdapter(Context context, List<Photo> photos) {
+    public GalleryConnector(Context context, List<Photo> photos) {
         mPhotos = photos;
         mContext = context;
         mInflater = LayoutInflater.from(context);

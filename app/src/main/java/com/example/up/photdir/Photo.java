@@ -1,4 +1,4 @@
-package com.example.up;
+package com.example.up.photdir;
 
 import android.graphics.Bitmap;
 
